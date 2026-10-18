@@ -23,12 +23,13 @@ def create_app(
         app.state.data = load_data(
             csv_path or Path(os.getenv("TANDEM_CSV_PATH", str(DEFAULT_CSV)))
         )
+        defaults = ModelConfig()
         app.state.model = mine_model(
             app.state.data,
             ModelConfig(
-                float(os.getenv("MIN_SUPPORT", ".005")),
-                float(os.getenv("MIN_CONFIDENCE", ".15")),
-                float(os.getenv("MIN_LIFT", "1")),
+                float(os.getenv("MIN_SUPPORT", str(defaults.support))),
+                float(os.getenv("MIN_CONFIDENCE", str(defaults.confidence))),
+                float(os.getenv("MIN_LIFT", str(defaults.lift))),
             ),
         )
         app.state.startup_seconds = perf_counter() - started

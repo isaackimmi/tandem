@@ -32,6 +32,9 @@
       "itemsets": 147,
       "rules": 12,
       "minimumSupportingCount": 12,
+      "oneTransactionRules": 0,
+      "displayedRecommendations": 12,
+      "oneTransactionDisplayedRecommendations": 0,
       "coverage": {
         "1": {
           "supported": 12,
@@ -54,7 +57,7 @@
           "probed": 277
         }
       },
-      "miningSeconds": 0.009279082994908094
+      "miningSeconds": 0.006458916002884507
     },
     {
       "config": {
@@ -65,6 +68,9 @@
       "itemsets": 673,
       "rules": 15,
       "minimumSupportingCount": 5,
+      "oneTransactionRules": 0,
+      "displayedRecommendations": 15,
+      "oneTransactionDisplayedRecommendations": 0,
       "coverage": {
         "1": {
           "supported": 12,
@@ -87,41 +93,215 @@
           "probed": 277
         }
       },
-      "miningSeconds": 0.02073595905676484
+      "miningSeconds": 0.026923625031486154
+    },
+    {
+      "config": {
+        "support": 0.005,
+        "confidence": 0.1,
+        "lift": 1
+      },
+      "itemsets": 673,
+      "rules": 298,
+      "minimumSupportingCount": 5,
+      "oneTransactionRules": 0,
+      "displayedRecommendations": 197,
+      "oneTransactionDisplayedRecommendations": 0,
+      "coverage": {
+        "1": {
+          "supported": 40,
+          "probed": 40
+        },
+        "2": {
+          "supported": 3,
+          "probed": 778
+        },
+        "3": {
+          "supported": 0,
+          "probed": 3333
+        },
+        "4": {
+          "supported": 0,
+          "probed": 1628
+        },
+        "5": {
+          "supported": 0,
+          "probed": 277
+        }
+      },
+      "miningSeconds": 0.025160583900287747
+    },
+    {
+      "config": {
+        "support": 0.002,
+        "confidence": 0.15,
+        "lift": 1
+      },
+      "itemsets": 1439,
+      "rules": 1877,
+      "minimumSupportingCount": 2,
+      "oneTransactionRules": 0,
+      "displayedRecommendations": 1774,
+      "oneTransactionDisplayedRecommendations": 0,
+      "coverage": {
+        "1": {
+          "supported": 12,
+          "probed": 40
+        },
+        "2": {
+          "supported": 624,
+          "probed": 778
+        },
+        "3": {
+          "supported": 59,
+          "probed": 3333
+        },
+        "4": {
+          "supported": 0,
+          "probed": 1628
+        },
+        "5": {
+          "supported": 0,
+          "probed": 277
+        }
+      },
+      "miningSeconds": 0.08862716681323946
+    },
+    {
+      "config": {
+        "support": 0.002,
+        "confidence": 0.1,
+        "lift": 1
+      },
+      "itemsets": 1439,
+      "rules": 2188,
+      "minimumSupportingCount": 2,
+      "oneTransactionRules": 0,
+      "displayedRecommendations": 1970,
+      "oneTransactionDisplayedRecommendations": 0,
+      "coverage": {
+        "1": {
+          "supported": 40,
+          "probed": 40
+        },
+        "2": {
+          "supported": 624,
+          "probed": 778
+        },
+        "3": {
+          "supported": 59,
+          "probed": 3333
+        },
+        "4": {
+          "supported": 0,
+          "probed": 1628
+        },
+        "5": {
+          "supported": 0,
+          "probed": 277
+        }
+      },
+      "miningSeconds": 0.08305195905268192
+    },
+    {
+      "config": {
+        "support": 0.001,
+        "confidence": 0.1,
+        "lift": 1
+      },
+      "itemsets": 6056,
+      "rules": 17276,
+      "minimumSupportingCount": 1,
+      "oneTransactionRules": 15088,
+      "displayedRecommendations": 11912,
+      "oneTransactionDisplayedRecommendations": 9942,
+      "coverage": {
+        "1": {
+          "supported": 40,
+          "probed": 40
+        },
+        "2": {
+          "supported": 777,
+          "probed": 778
+        },
+        "3": {
+          "supported": 3172,
+          "probed": 3333
+        },
+        "4": {
+          "supported": 1373,
+          "probed": 1628
+        },
+        "5": {
+          "supported": 0,
+          "probed": 277
+        }
+      },
+      "miningSeconds": 0.7136103338561952
     }
   ],
   "selectedConfig": {
-    "support": 0.005,
-    "confidence": 0.15,
+    "support": 0.002,
+    "confidence": 0.1,
     "lift": 1.0
   },
-  "modelVersion": "18b05da9c57356864201bf5efd93f154374831026b32b23620762ca3e963591c",
+  "modelVersion": "1a3a766f13563e2633985f67bddfe84668e04a9bd85d8a8a7e631859a73d19f1",
   "supportedBasket": [
-    "60-652-95R",
-    "DH-IPC-HDBW4431R-ZS"
+    "0407-001",
+    "0806-001"
   ],
   "unsupportedExtension": [
-    "60-652-95R",
-    "DH-IPC-HDBW4431R-ZS",
-    "0806-001"
+    "0407-001",
+    "0806-001",
+    "0935-001"
   ],
   "recommendations": [
     {
       "product": {
-        "id": "DS-2CD2142FWD-I",
-        "name": "Hikvision 4MP IP Camera",
-        "sku": "DS-2CD2142FWD-I"
+        "id": "5800PIR-RES",
+        "name": "Honeywell 5800PIR-RES Motion Detector",
+        "sku": "5800PIR-RES"
       },
       "antecedent_ids": [
-        "60-652-95R",
-        "DH-IPC-HDBW4431R-ZS"
+        "0407-001",
+        "0806-001"
       ],
-      "supporting_transaction_count": 5,
-      "support": 0.005,
-      "confidence": 0.35714285714285715,
-      "lift": 3.536067892503536
+      "supporting_transaction_count": 2,
+      "support": 0.002,
+      "confidence": 0.25,
+      "lift": 3.1645569620253164
+    },
+    {
+      "product": {
+        "id": "IMP1110-1ES",
+        "name": "Pelco IMP1110-1ES IP Camera",
+        "sku": "IMP1110-1ES"
+      },
+      "antecedent_ids": [
+        "0407-001",
+        "0806-001"
+      ],
+      "supporting_transaction_count": 2,
+      "support": 0.002,
+      "confidence": 0.25,
+      "lift": 2.976190476190476
+    },
+    {
+      "product": {
+        "id": "NVR-5500-16A00",
+        "name": "Bosch NVR-5500-16A00 NVR",
+        "sku": "NVR-5500-16A00"
+      },
+      "antecedent_ids": [
+        "0407-001",
+        "0806-001"
+      ],
+      "supporting_transaction_count": 2,
+      "support": 0.002,
+      "confidence": 0.25,
+      "lift": 2.7777777777777777
     }
   ],
-  "warmLookupP95Ms": 0.0001671724021434784,
+  "warmLookupP95Ms": 0.00020908191800117493,
   "warmLookupMeasurements": 1000
 }

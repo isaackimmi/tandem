@@ -1,72 +1,112 @@
 # Tandem — read-aloud demo script
-**Target:** roughly two minutes, including a short live walkthrough. Rehearse once at your natural pace; timings below are a guide, not a measured recording duration.
+
+## Current configuration and demo scope
+
+Support **0.2%**, confidence **10%**, lift **strictly above 1**. The model uses the entire selected basket without fallback. Demonstrate one, two and three selected products; this is a presentation scope, not a basket cap. Suggestions still default to at most five.
+
+The supplied 1,000 transactions yield 2,188 qualifying rules covering 40 single-item baskets, 624 pairs and 59 triples. These are counts of baskets with recommendations, not prediction accuracy. Only 59 of the 9,880 possible triples qualify, so use the verified path below.
+
+**Target:** approximately 3–4 minutes including calibration and live interaction. Timing is an estimate; rehearse at your natural pace. Read quoted text; the other text is stage direction.
+
 **Audience page:** [Tandem presentation](https://app.notion.com/p/3fde7d562b8181fa9a30e1a95cc96090)
-**Delivery:** conversational, unhurried, with brief pauses after the three metric values. Read quoted paragraphs only. Stage directions are not narration.
 
 ## Before recording
-Open the presentation page and the local app in separate tabs. Start the app with the documented root command after dependency setup. In the app, open the workspace, clear the basket, and leave it empty. Keep this script on another display or device outside the recording area.
 
-Notion's native Presentation Mode is documented for Plus, Business, and Enterprise plans and is currently beta. Divider blocks define slides, and the page title is the opening slide. Enter with **••• → More → Present** or **⌘ Option P** on Mac; use arrow keys and Escape. Links and speaker notes do not function as presentation controls, so switch to the pre-opened app tab for the live demo. Verified in Isaac's workspace: ⌘ Option P opens seven native presentation slides. The coordinator inspected every slide at 1512 × 949 with no clipping, exited to the live app, and returned to the closing slide. This verifies the visual presentation and tab transition; the two-minute narration timing remains an estimate. [Official Notion guide](https://www.notion.com/help/presentation-mode)
+Open the presentation and [Tandem workspace](https://tandem-three-lyart.vercel.app/recommender) in separate tabs. Clear the basket. Keep this guide outside the recording area. Enter Notion Presentation Mode with **⌘ Option P**; use arrow keys to advance and Escape to leave. Switch to the pre-opened app for the walkthrough.
 
-## 0:00–0:15 · Opening
-**Show:** title, then “A basket. A better next choice.”
-> “Meet Tandem. It recommends products based on what people bought together. Our starting point is one thousand recorded transactions and forty products. You build a basket, and Tandem looks for a relevant next item.”
+## Opening — purpose
 
-## 0:15–0:35 · The algorithm
+**Show:** “A basket. A better next choice.”
+
+> “Meet Tandem. It recommends products based on what people bought together. We start with one thousand recorded transactions and forty products. You build a basket, and Tandem looks for a relevant next item.”
+
+## Algorithm and configuration
+
 **Advance:** “Find the pattern. Respect the evidence.”
-> “We use Apriori to find frequent product combinations, then generate association rules. A rule needs at least half a percent support, fifteen percent confidence, and lift above one. We chose a five-transaction minimum because a ten-transaction minimum produced no qualifying two-item rules.”
 
-## 0:35–0:55 · Make the numbers concrete
-**Advance:** “Five baskets tell a story.” Point once at each number.
-> “Here's a real example. Five transactions contain this detector and both cameras. That's half a percent support. Five of the fourteen baskets containing the starting pair include the suggested camera: thirty-five-point-seven percent confidence. Lift is about three-point-five-four, compared with the suggested camera's overall frequency.”
+> “We use Apriori to find frequent product combinations, then generate association rules. Our current settings require at least point-two percent support, ten percent confidence, and lift above one. In this dataset, the support threshold means a combination must appear in at least two transactions.”
 
-## 0:55–1:12 · Architecture
+> “We compared different settings before choosing those values. The earlier half-percent support and fifteen-percent confidence settings produced recommendations for only twelve individual products and three pairs. Lowering confidence to ten percent gave every individual product a recommendation, but still left only three pairs. Support was also limiting coverage.”
+
+> “A three-transaction minimum gave us one hundred ninety pairs but no triples. A two-transaction minimum gave us six hundred twenty-four pairs and fifty-nine triples. We also tested a one-transaction minimum. It produced many more suggestions, but more than eighty-three percent of displayed basket-to-suggestion entries then depended on just one observation.”
+
+> “We chose the two-transaction minimum and focused the demo on baskets of up to three products. This gives us more useful examples while excluding rules supported by only one transaction. It is still a small dataset; more coverage does not prove better predictive accuracy.”
+
+## Make the metrics concrete
+
+**Advance:** “Five baskets tell a story.” This particular rule still has 0.5% support even though the minimum threshold is now 0.2%.
+
+> “Here is one real rule. Five transactions contain this detector and both cameras. That is half a percent support. Five of the fourteen baskets containing the starting pair include the suggested camera: thirty-five-point-seven percent confidence. Lift is about three-point-five-four, relative to that camera's overall frequency.”
+
+## Architecture
+
 **Advance:** “Mine once. Match every change.”
-> “The Python backend validates the CSV and mines rules once when it starts. Next.js handles the interface. FastAPI serves the catalog and matches each complete basket against the rules held in memory. Changing your basket performs a lookup; it doesn't retrain the model.”
 
-## 1:12–1:48 · Live demonstration
-**Advance:** “The whole basket matters.” Exit Presentation Mode and switch to the pre-opened local workspace.
-1. Search `60-652-95R`. Add the GE Interlogix carbon monoxide detector.
-2. Search `DH-IPC-HDBW4431R-ZS`. Add the Dahua camera.
-3. Briefly point to the Hikvision recommendation, `DS-2CD2142FWD-I`.
-4. Search `0806-001`. Add the Axis camera.
-5. Pause on the no-recommendations state. Remove the Axis camera from the basket.
-6. Pause on the restored Hikvision recommendation. Do not add the recommended item before this step.
+> “The Python backend validates the CSV and mines rules once when it starts. Next.js handles the interface. FastAPI serves the catalog and matches the complete basket against rules in memory. Changing the basket performs a lookup; it does not retrain the model. Both services are hosted on Vercel from the same repository.”
 
-> “Let's add the detector and the Dahua camera. Tandem recommends this Hikvision camera. Now I add another product. There's no qualifying rule for the entire new basket, so suggestions disappear. Remove that product, and the recommendation returns. Every change uses the whole basket.”
+## Live demonstration — one, two, three products
 
-## 1:48–2:00 · Close
-**Show:** return to Notion and present “Thoughtful suggestions. Clear limits.”
+**Advance:** “The whole basket matters.” Switch to the app.
+
+1. Clear the basket. Search `B5512` and add **Bosch B5512 Control Panel**. Three suggestions appear. Point to **Honeywell 6160 Keypad**, the third suggestion.
+2. Add that Honeywell keypad (`6160`) from recommendations. Four suggestions appear. The first is **Hikvision 4MP IP Camera** (`DS-2CD2142FWD-I`).
+3. Add that Hikvision camera. The three-product basket recommends **Hanwha QND-6010R Network Camera** (`QND-6010R`). Do not add Hanwha; stop at three selected products.
+4. Remove Hikvision first, returning to the Bosch/Honeywell pair. Search and add **Axis M3046-V Network Camera** (`0806-001`). The new three-product basket has no recommendations.
+5. Remove Axis. The four pair recommendations return.
+
+> “The Bosch panel now gives us suggestions. I can add this Honeywell keypad, then this Hikvision camera. With three products selected, Tandem still finds a suggestion: the Hanwha camera. That rule appears in two of the three transactions containing our selected trio, so its confidence is about sixty-seven percent. That is a real pattern, but a small sample.”
+
+> “Now I swap the Hikvision camera for Axis. There is no qualifying rule for this entire basket, so suggestions disappear. Removing Axis restores the recommendations for the pair. Tandem always matches the complete selection.”
+
+## Close
+
+Return to the presentation's closing slide.
+
 > “These are observed co-purchase patterns, not compatibility guarantees or measured prediction accuracy. Tandem makes those patterns useful through a simple, responsive shopping experience.”
 
+## Rehearsal test cases — exact expected order
+
+Clear the basket before each independent case. Search by SKU; changing the search preserves the basket. Wait for loading to finish. These expectations use the default five-suggestion limit.
+
+| Case | Selected SKUs | Expected suggestion SKUs, in order |
+| --- | --- | --- |
+| Single | `B5512` | `DS-7608NI-I2/8P`, `60-848-02-95R`, `6160` |
+| Pair | `B5512`, `6160` | `DS-2CD2142FWD-I`, `HEN08104`, `QND-6010R`, `DS-7608NI-I2/8P` |
+| Triple | `B5512`, `6160`, `DS-2CD2142FWD-I` | `QND-6010R` |
+| Unsupported triple | `B5512`, `6160`, `0806-001` | None; removing Axis restores the pair row |
+| Earlier example, updated result | `60-652-95R`, `DH-IPC-HDBW4431R-ZS` | `DS-2CD2142FWD-I`, `PG9914`, `5808W3`, `HEN08104`, `VISTA-20P` |
+| Empty | No products | Empty-basket guidance, no suggestions |
+
+Bosch alone is now a positive test. The earlier 0.5%/15% checklist is obsolete and must not be used as the current expected output.
+
+## Configuration comparison for questions
+
+All rows require lift strictly above one. Counts are distinct selected baskets with at least one recommendation.
+
+| Support / confidence | Singles / pairs / triples | Decision |
+| --- | --- | --- |
+| 0.5% / 15% | 12 / 3 / 0 | Previous configuration; too sparse for the intended demo. |
+| 0.5% / 10% | 40 / 3 / 0 | Confidence alone improves singles, not pairs. |
+| 0.4% / 10% | 40 / 15 / 0 | Limited improvement; no triples. |
+| 0.3% / 10% | 40 / 190 / 0 | More pairs; no triples. |
+| **0.2% / 10%** | **40 / 624 / 59** | **Selected: at least two supporting transactions.** |
+| 0.1% / 10% | 40 / 777 / 3,172 | Rejected: 83.46% of displayed basket-to-suggestion entries depend on one transaction. |
+
+Four- and five-product demo coverage is not an objective. The selected setting has no recommendations for baskets that size. Possible denominators are 40 singles, 780 pairs and 9,880 triples. No held-out accuracy evaluation is claimed.
+
 ## Architecture reference
+
 ![Tandem architecture](architecture.png)
 
-[Editable draw.io source](architecture.drawio)
+[Editable draw.io source](architecture.drawio). Next.js and FastAPI are deployed together on Vercel; the local single-command runtime uses the same model policy.
 
-## Optional technical appendix — not part of the two-minute narration
-**Support.** For antecedent A and suggested product B, support is the fraction of all transactions containing A and B together: count(A ∪ B) ÷ 1,000.
+## Technical appendix
 
-**Confidence.** Among transactions containing A, the fraction that also contain B: count(A ∪ B) ÷ count(A). In the real pair example, 5 ÷ 14 ≈ 0.35714.
-
-**Lift.** Confidence ÷ support(B). The suggested Hikvision camera occurs in 101 of 1,000 transactions, so (5 ÷ 14) ÷ 0.101 ≈ 3.536. Lift describes association relative to the item's observed base rate. It does not establish causation or compatibility.
-
-**Why 0.005 support?** At 0.01 support, the source yields 147 frequent itemsets and 12 eligible rules, all with single-item antecedents. At 0.005, it yields 673 itemsets and 15 eligible rules, including three two-item antecedents. Confidence stays at 0.15 and lift stays strictly above 1. This is an explicit demonstration tradeoff with sparse evidence.
-
-**Apriori's pruning idea.** If a product set is frequent, its subsets must also be frequent. Apriori uses this property to avoid exploring combinations whose smaller subsets already fail the support threshold.
-
-**Request policy.** A rule's antecedent must equal the complete selected basket. No subset rule, popularity fallback, or automatic threshold relaxation is used. Suggestions exclude selected products and sort by confidence, lift, support, then SKU.
-
-**Product behavior.** One selection per SKU; no quantities. Refresh resets the basket. Old recommendations disappear immediately when the basket changes, and late responses cannot replace newer state. Local loading and error boundaries keep unrelated controls usable.
-
-**What we can claim.** The source has 1,000 transactions and 40 unique products. The selected thresholds yield 15 rules. Tests verify software behavior; they do not establish recommendation accuracy. A held-out evaluation and detailed evidence UI are outside scope.
-
-**Hosting.** The diagram describes the local implementation. The optional deployment work targets Next.js and FastAPI on Vercel in the same monorepo; it must remain an unmerged PR for Isaac's review. Do not describe it as deployed.
-
-## Review and rehearsal evidence
-- Narrative and diagram agents cross-reviewed data, algorithm, API flow, and numerical claims against implementation and calibration sources; no unresolved factual findings.
-- The coordinator entered native Presentation Mode in Isaac's workspace and inspected all seven slides at 1512 × 949. Metric columns, headings, and architecture fit without clipping.
-- The coordinator exited presentation, accessed the live app preview, and returned with ⌘ Option P to the closing slide (7 of 7).
-- Both Notion pages contain their final architecture images; the script also provides editable draw.io/SVG sources.
-- [Visual/navigation rehearsal MP4](presentation-rehearsal.mp4) and [architecture slide screenshot](notion-architecture-slide.png) preserve the actual workspace evidence.
-- This short rehearsal verifies visuals and navigation. It is not a fully narrated two-minute demo, and the 229-word script's duration remains an estimate.
+- **Support:** count of transactions containing the selected basket and suggested product together, divided by 1,000.
+- **Confidence:** joint count divided by the count containing the selected basket.
+- **Lift:** confidence divided by the suggested product's overall frequency.
+- **Triple example:** Bosch + Honeywell + Hikvision occurs three times; adding Hanwha occurs twice. Support 0.2%, confidence 2/3, lift approximately 7.17. High lift does not remove the small-sample limitation.
+- **Apriori pruning:** every subset of a frequent itemset must itself be frequent. Apriori uses this property to discard candidates whose subsets fail support.
+- **Runtime:** mine once per backend instance; full-basket equality; exclude selected products; rank by confidence, lift, support, then SKU. No fallback or per-click threshold adjustment.
+- **UI:** unique items, no quantities, refresh resets the basket. Obsolete suggestions clear immediately; late requests cannot replace current results. Loading and retry stay local to each region.
+- **Evidence:** [calibration report](../../server/MODEL_REPORT.md), [historical research](../calibration-demo-analysis.md). Previous MP4 rehearsals document earlier app versions; the new calibration recording accompanies this change.

@@ -20,7 +20,7 @@
 <text x="846" y="238" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">Association rules</text>
 <text x="1221" y="151" font-family="Helvetica Neue,Arial,sans-serif" font-size="29" fill="#242320" font-weight="600">In memory</text>
 <text x="1221" y="198" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">Validated catalog</text>
-<text x="1221" y="238" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">15 eligible rules</text>
+<text x="1221" y="238" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">2,188 eligible rules</text>
 <text x="70" y="370" font-family="Helvetica Neue,Arial,sans-serif" font-size="22" fill="#78756F" font-weight="600">ON EACH INTERACTION</text>
 <rect x="70" y="410" width="650" height="220" rx="24" fill="#FFFFFF" stroke="#E5E2DC"/>
 <rect x="800" y="410" width="730" height="220" rx="24" fill="#FFFFFF" stroke="#E5E2DC"/>

@@ -77,7 +77,7 @@
         <mxCell id="22" value="Validated catalog" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=25;fontColor=#6C6963;fontStyle=0;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1221" y="173" width="246.49999999999997" height="33" />
         </mxCell>
-        <mxCell id="23" value="15 eligible rules" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=25;fontColor=#6C6963;fontStyle=0;spacing=0;" vertex="1" parent="1">
+        <mxCell id="23" value="2,188 eligible rules" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=25;fontColor=#6C6963;fontStyle=0;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1221" y="213" width="246.49999999999997" height="33" />
         </mxCell>
         <mxCell id="24" value="ON EACH INTERACTION" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=22;fontColor=#78756F;fontStyle=1;spacing=0;" vertex="1" parent="1">
