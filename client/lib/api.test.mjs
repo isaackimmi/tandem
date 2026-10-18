@@ -8,8 +8,8 @@ after(() => { globalThis.fetch = originalFetch; });
 
 test("same-origin catalog query preserves user input and browser-relative URL", async () => {
   globalThis.fetch = async (url) => {
-    assert.equal(url, "/api/v1/items?q=A%26B+%2F+camera&page=2&pageSize=20");
-    return Response.json({ items: [], page: 2, pageSize: 20, total: 40, totalPages: 2 });
+    assert.equal(url, "/api/v1/items?q=A%26B+%2F+camera&page=2&pageSize=10");
+    return Response.json({ items: [], page: 2, pageSize: 10, total: 40, totalPages: 4 });
   };
   assert.equal((await getCatalog({ query: "A&B / camera", page: 2 })).page, 2);
 });

@@ -19,7 +19,7 @@ export interface RecommendationResponse {
   reason: "empty_basket" | "no_qualifying_rules" | null;
   modelVersion: string;
 }
-export const PAGE_SIZE = 20;
+export const PAGE_SIZE = 10;
 export const browserOrigin = process.env.NEXT_PUBLIC_API_ORIGIN ?? "http://127.0.0.1:8000";
 
 // Empty origin means the browser uses the current deployment domain. A service
@@ -32,8 +32,8 @@ function isProduct(value: unknown): value is Product {
   if (typeof value !== "object" || value === null) return false;
   return "id" in value && typeof value.id === "string" && "name" in value && typeof value.name === "string" && "sku" in value && typeof value.sku === "string";
 }
-export async function getCatalog({ query = "", page = 1, origin = browserOrigin, signal }: { query?: string; page?: number; origin?: string; signal?: AbortSignal } = {}): Promise<CatalogPage> {
-  const search = new URLSearchParams({ q: query, page: String(page), pageSize: String(PAGE_SIZE) });
+export async function getCatalog({ query = "", page = 1, pageSize = PAGE_SIZE, origin = browserOrigin, signal }: { query?: string; page?: number; pageSize?: number; origin?: string; signal?: AbortSignal } = {}): Promise<CatalogPage> {
+  const search = new URLSearchParams({ q: query, page: String(page), pageSize: String(pageSize) });
   const url = `${apiUrl("/api/v1/items", origin)}?${search}`;
   const response = await fetch(url, { cache: "no-store", signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(5000)]) : AbortSignal.timeout(5000) });
   if (!response.ok) throw new Error("Catalog unavailable");

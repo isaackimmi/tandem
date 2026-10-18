@@ -15,6 +15,9 @@ async function selectSku(page: Page, sku: string) {
 test('all 40 products remain reachable, searchable, and unique in the basket', async ({ page }) => {
   await page.goto('/recommender');
   const rows = catalog(page).getByTestId(/^product-/);
+  await expect(rows).toHaveCount(10);
+  await expect(catalog(page).getByLabel('Items per page')).toHaveValue('10');
+  await catalog(page).getByLabel('Items per page').selectOption('20');
   await expect(rows).toHaveCount(20);
   const firstIds = await rows.evaluateAll(elements => elements.map(element => element.getAttribute('data-testid')));
   const firstName = await rows.first().getByRole('button').getAttribute('aria-label');
@@ -38,6 +41,41 @@ test('all 40 products remain reachable, searchable, and unique in the basket', a
   await expect(rows.first().getByRole('button', { name: / added$/ })).toBeDisabled();
   await basket(page).getByRole('button', { name: /^Remove / }).click();
   await expect(rows.first().getByRole('button', { name: /^Add / })).toBeEnabled();
+});
+
+test('page size resets pagination, preserves search and selection, and works on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/recommender');
+  const region = catalog(page);
+  const rows = region.getByTestId(/^product-/);
+  const size = region.getByLabel('Items per page');
+  await expect(rows).toHaveCount(10);
+  await rows.first().getByRole('button', { name: /^Add / }).click();
+  await region.getByRole('button', { name: 'Next page' }).click();
+  await expect(region).toContainText('Page 2 of 4');
+  for (const value of ['5', '10', '20', '40']) {
+    await size.selectOption(value);
+    await expect(rows).toHaveCount(Number(value));
+    await expect(region).toContainText(`Page 1 of ${40 / Number(value)}`);
+    await expect(region.getByRole('button', { name: 'Previous page' })).toBeDisabled();
+    await expect(rows.first().getByRole('button')).toBeDisabled();
+    await expect(basket(page).getByRole('button', { name: /^Remove / })).toHaveCount(1);
+  }
+  await expect(region.getByRole('button', { name: 'Next page' })).toBeDisabled();
+  await search(page).fill('bosch');
+  await expect(rows).toHaveCount(8);
+  await size.selectOption('5');
+  await expect(rows).toHaveCount(5);
+  await expect(search(page)).toHaveValue('bosch');
+  await expect(region).toContainText('Page 1 of 2');
+  await region.getByRole('button', { name: 'Next page' }).click();
+  await expect(rows).toHaveCount(3);
+  await search(page).fill('no-such-product');
+  await expect(region).toContainText('No products found');
+  await size.selectOption('10');
+  await expect(region).toContainText('Page 0 of 0');
+  await expect(region.getByRole('button', { name: 'Next page' })).toBeDisabled();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 
 test('real CSV full-basket recommendations clear for an unsupported addition and restore on removal', async ({ page }) => {

@@ -19,7 +19,7 @@ test('initial server catalog Suspense leaves the shell and basket usable', async
   await expect(page.getByRole('status', { name: 'Loading catalog' })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Explore the catalog', exact: true })).toBeEnabled();
   await request.post(`${proxy}/__test/release`);
-  await expect(page.getByRole('region', { name: 'Catalog', exact: true }).getByTestId(/^product-/)).toHaveCount(20);
+  await expect(page.getByRole('region', { name: 'Catalog', exact: true }).getByTestId(/^product-/)).toHaveCount(10);
   await expect(page.getByRole('status', { name: 'Loading catalog' })).toHaveCount(0);
   expect(clientCatalogRequests).toBe(0);
 });
@@ -31,7 +31,7 @@ test('initial server catalog failure can retry in place without replacing the sh
   await expect(catalog.getByRole('alert')).toBeVisible();
   await expect(page.getByRole('region', { name: /^Your basket/ })).toBeVisible();
   await catalog.getByRole('button', { name: /retry/i }).click();
-  await expect(catalog.getByTestId(/^product-/)).toHaveCount(20);
+  await expect(catalog.getByTestId(/^product-/)).toHaveCount(10);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Build your basket.');
 });
 
