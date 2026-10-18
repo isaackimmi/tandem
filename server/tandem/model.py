@@ -82,6 +82,7 @@ def mine_model(
             num_itemsets=len(data.transactions),
             metric="confidence",
             min_threshold=config.confidence,
+            return_metrics=["support", "confidence", "lift"],
         )
         for _, rule in rules.iterrows():
             antecedent, consequent = rule["antecedents"], rule["consequents"]
