@@ -1,0 +1,2 @@
+# Vercel backend service builds from the repository root.
+-r server/requirements-runtime.txt

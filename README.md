@@ -38,6 +38,7 @@ An observed dataset example: select SKUs `60-652-95R` and `DH-IPC-HDBW4431R-ZS`.
 npm run test:backend
 npm --prefix client run lint
 npm run typecheck
+npm --prefix client test
 npm run build
 npx playwright install --no-shell chromium
 npm run test:e2e
@@ -66,6 +67,8 @@ The CSV contains unordered transactions, not individual purchase histories or qu
 
 ## Delivery
 
-The local app is the required milestone. Deployment is a separate optional PR targeting **Vercel from this monorepo**, retaining Next.js and FastAPI/Python. It will validate single-project Vercel Services, with two projects from the same repository as a fallback. That PR is reserved for Isaac's review and will not be merged automatically. See the [acceptance evidence](docs/acceptance.md), [executive summary](https://app.notion.com/p/3fde7d562b8181c4b7d2cc90094096a3), [Notion presentation](https://app.notion.com/p/3fde7d562b8181fa9a30e1a95cc96090), and [read-aloud script](https://app.notion.com/p/3fde7d562b81815ea5e0c15dad02c293). The presentation works in native Notion Presentation Mode (Command–Option–P). Editable architecture diagrams and a verified MP4 navigation rehearsal are in [docs/presentation](docs/presentation).
+The local app is the required milestone. Deployment is a separate optional PR targeting **Vercel from this monorepo**, retaining Next.js and FastAPI/Python. The prepared configuration uses single-project Vercel Services, with two projects from the same repository as a fallback. See [deployment setup, validation limits, and rollback](docs/deployment.md). That PR is reserved for Isaac's review and will not be merged automatically.
+
+See the [acceptance evidence](docs/acceptance.md), [executive summary](https://app.notion.com/p/3fde7d562b8181c4b7d2cc90094096a3), [Notion presentation](https://app.notion.com/p/3fde7d562b8181fa9a30e1a95cc96090), and [read-aloud script](https://app.notion.com/p/3fde7d562b81815ea5e0c15dad02c293). The presentation works in native Notion Presentation Mode (Command–Option–P). Editable architecture diagrams and a verified MP4 navigation rehearsal are in [docs/presentation](docs/presentation).
 
 UI icons use the Lucide family through `react-icons/lu` (ISC license); see installed dependency license notices. Dependency lockfiles preserve the selected versions.

@@ -37,7 +37,9 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: server/requirements.txt
+          cache-dependency-path: |
+            server/requirements.txt
+            server/requirements-runtime.txt
       - name: Use the lockfile npm version
         run: npm install --global npm@11.6.2
       - name: Install locked dependencies
@@ -53,6 +55,7 @@ jobs:
         run: |
           npm --prefix client run lint
           npm run typecheck
+          npm --prefix client test
       - name: Production build without a backend
         run: npm run build
       - name: Browser acceptance and MP4 verification
