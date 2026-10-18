@@ -1,0 +1,127 @@
+{
+  "source": {
+    "sha256": "3d48b2480bee2ca3942f7add047233eb69461d210b996733c3eff3ee0bf5cbe6",
+    "transactions": 1000,
+    "products": 40,
+    "basketSizes": {
+      "2": 237,
+      "3": 228,
+      "4": 258,
+      "5": 277
+    },
+    "duplicateItemsRemoved": 0
+  },
+  "environment": {
+    "python": "3.12.8",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "packages": {
+      "mlxtend": "0.23.4",
+      "pandas": "2.3.3",
+      "numpy": "2.5.4",
+      "fastapi": "0.128.0"
+    }
+  },
+  "probeDefinition": "Every distinct nonempty subset of an observed transaction, grouped by size; coverage is descriptive, not predictive accuracy.",
+  "experiments": [
+    {
+      "config": {
+        "support": 0.01,
+        "confidence": 0.15,
+        "lift": 1
+      },
+      "itemsets": 147,
+      "rules": 12,
+      "minimumSupportingCount": 12,
+      "coverage": {
+        "1": {
+          "supported": 12,
+          "probed": 40
+        },
+        "2": {
+          "supported": 0,
+          "probed": 778
+        },
+        "3": {
+          "supported": 0,
+          "probed": 3333
+        },
+        "4": {
+          "supported": 0,
+          "probed": 1628
+        },
+        "5": {
+          "supported": 0,
+          "probed": 277
+        }
+      },
+      "miningSeconds": 0.009279082994908094
+    },
+    {
+      "config": {
+        "support": 0.005,
+        "confidence": 0.15,
+        "lift": 1
+      },
+      "itemsets": 673,
+      "rules": 15,
+      "minimumSupportingCount": 5,
+      "coverage": {
+        "1": {
+          "supported": 12,
+          "probed": 40
+        },
+        "2": {
+          "supported": 3,
+          "probed": 778
+        },
+        "3": {
+          "supported": 0,
+          "probed": 3333
+        },
+        "4": {
+          "supported": 0,
+          "probed": 1628
+        },
+        "5": {
+          "supported": 0,
+          "probed": 277
+        }
+      },
+      "miningSeconds": 0.02073595905676484
+    }
+  ],
+  "selectedConfig": {
+    "support": 0.005,
+    "confidence": 0.15,
+    "lift": 1.0
+  },
+  "modelVersion": "18b05da9c57356864201bf5efd93f154374831026b32b23620762ca3e963591c",
+  "supportedBasket": [
+    "60-652-95R",
+    "DH-IPC-HDBW4431R-ZS"
+  ],
+  "unsupportedExtension": [
+    "60-652-95R",
+    "DH-IPC-HDBW4431R-ZS",
+    "0806-001"
+  ],
+  "recommendations": [
+    {
+      "product": {
+        "id": "DS-2CD2142FWD-I",
+        "name": "Hikvision 4MP IP Camera",
+        "sku": "DS-2CD2142FWD-I"
+      },
+      "antecedent_ids": [
+        "60-652-95R",
+        "DH-IPC-HDBW4431R-ZS"
+      ],
+      "supporting_transaction_count": 5,
+      "support": 0.005,
+      "confidence": 0.35714285714285715,
+      "lift": 3.536067892503536
+    }
+  ],
+  "warmLookupP95Ms": 0.0001671724021434784,
+  "warmLookupMeasurements": 1000
+}
