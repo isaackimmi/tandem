@@ -1,4 +1,6 @@
-import { Header } from "@/components/header";
+import { Suspense } from "react";
+import { WorkspaceShell } from "@/components/workspace-shell";
+import { InitialCatalog, CatalogFallback } from "@/components/initial-catalog";
 export default function Recommender() {
-  return <><Header workspace /><main id="main" className="workspace"><div className="workspace-heading"><div><p className="eyebrow">Workspace</p><h1>Build your basket.</h1><p>Explore the catalog. Discover patterns in past purchases.</p></div></div></main></>;
+  return <WorkspaceShell catalog={<Suspense fallback={<CatalogFallback />}><InitialCatalog /></Suspense>} />;
 }
