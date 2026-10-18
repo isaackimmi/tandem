@@ -38,6 +38,7 @@ An observed dataset example: select SKUs `60-652-95R` and `DH-IPC-HDBW4431R-ZS`.
 npm run test:backend
 npm --prefix client run lint
 npm run typecheck
+npm --prefix client test
 npm run build
 npx playwright install --no-shell chromium
 npm run test:e2e
@@ -66,6 +67,6 @@ The CSV contains unordered transactions, not individual purchase histories or qu
 
 ## Delivery
 
-The local app is the required milestone. Deployment is a separate optional PR targeting **Vercel from this monorepo**, retaining Next.js and FastAPI/Python. It will validate single-project Vercel Services, with two projects from the same repository as a fallback. That PR is reserved for Isaac's review and will not be merged automatically. Source packaging and final acceptance evidence are documented under `docs/` as they are verified.
+The local app is the required milestone. Deployment is a separate optional PR targeting **Vercel from this monorepo**, retaining Next.js and FastAPI/Python. The prepared configuration uses single-project Vercel Services, with two projects from the same repository as a fallback. See [deployment setup, validation limits, and rollback](docs/deployment.md). That PR is reserved for Isaac's review and will not be merged automatically. Source packaging and final acceptance evidence are documented under `docs/` as they are verified.
 
 UI icons use the Lucide family through `react-icons/lu` (ISC license); see installed dependency license notices. Dependency lockfiles preserve the selected versions.

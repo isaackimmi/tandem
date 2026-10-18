@@ -22,13 +22,19 @@ export interface RecommendationResponse {
 export const PAGE_SIZE = 20;
 export const browserOrigin = process.env.NEXT_PUBLIC_API_ORIGIN ?? "http://127.0.0.1:8000";
 
+// Empty origin means the browser uses the current deployment domain. A service
+// binding may carry a path prefix, so preserve that prefix for server requests.
+export function apiUrl(path: string, origin = browserOrigin): string {
+  return origin ? new URL(path.replace(/^\//, ""), `${origin.replace(/\/$/, "")}/`).toString() : path;
+}
+
 function isProduct(value: unknown): value is Product {
   if (typeof value !== "object" || value === null) return false;
   return "id" in value && typeof value.id === "string" && "name" in value && typeof value.name === "string" && "sku" in value && typeof value.sku === "string";
 }
 export async function getCatalog({ query = "", page = 1, origin = browserOrigin, signal }: { query?: string; page?: number; origin?: string; signal?: AbortSignal } = {}): Promise<CatalogPage> {
-  const url = new URL("/api/v1/items", origin);
-  url.search = new URLSearchParams({ q: query, page: String(page), pageSize: String(PAGE_SIZE) }).toString();
+  const search = new URLSearchParams({ q: query, page: String(page), pageSize: String(PAGE_SIZE) });
+  const url = `${apiUrl("/api/v1/items", origin)}?${search}`;
   const response = await fetch(url, { cache: "no-store", signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(5000)]) : AbortSignal.timeout(5000) });
   if (!response.ok) throw new Error("Catalog unavailable");
   const data: CatalogPage = await response.json();
@@ -36,7 +42,7 @@ export async function getCatalog({ query = "", page = 1, origin = browserOrigin,
   return data;
 }
 export async function getRecommendations(selectedItemIds: string[], signal: AbortSignal): Promise<RecommendationResponse> {
-  const response = await fetch(new URL("/api/v1/recommendations", browserOrigin), {
+  const response = await fetch(apiUrl("/api/v1/recommendations"), {
     method: "POST", headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ selectedItemIds, limit: 5 }),
     signal: AbortSignal.any([signal, AbortSignal.timeout(5000)]),
