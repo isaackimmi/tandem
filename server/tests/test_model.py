@@ -82,3 +82,31 @@ def test_ranking_is_stable_and_limit_applies(tmp_path):
 def test_invalid_thresholds_fail_clearly(args):
     with pytest.raises(ValueError):
         ModelConfig(*args)
+
+
+def test_approved_real_csv_calibration_and_raw_count_demo_evidence():
+    from collections import Counter
+
+    data = load_data()
+    model = mine_model(data)
+    assert model.config == ModelConfig(0.002, 0.10, 1)
+    assert model.rule_count == 2188
+    assert Counter(map(len, model.rules)) == {1: 40, 2: 624, 3: 59}
+    assert min(r.supporting_transaction_count for rules in model.rules.values() for r in rules) == 2
+    # These expected products come from independently counted source transactions.
+    for basket, expected in [
+        (["B5512"], ["DS-7608NI-I2/8P", "60-848-02-95R", "6160"]),
+        (["B5512", "6160"], ["DS-2CD2142FWD-I", "HEN08104", "QND-6010R", "DS-7608NI-I2/8P"]),
+        (["B5512", "6160", "DS-2CD2142FWD-I"], ["QND-6010R"]),
+    ]:
+        recommendations = model.recommend(basket)
+        assert [r.product.id for r in recommendations] == expected
+        antecedent_count = sum(set(basket).issubset(t) for t in data.transactions)
+        for result in recommendations:
+            joint_count = sum(set([*basket, result.product.id]).issubset(t) for t in data.transactions)
+            consequent_count = sum(result.product.id in t for t in data.transactions)
+            assert result.supporting_transaction_count == joint_count
+            assert result.support == pytest.approx(joint_count / 1000)
+            assert result.confidence == pytest.approx(joint_count / antecedent_count)
+            assert result.lift == pytest.approx((joint_count / antecedent_count) / (consequent_count / 1000))
+            assert result.lift > 1

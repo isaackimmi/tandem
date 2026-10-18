@@ -9,8 +9,8 @@ from data_science.data_types import Product
 
 @dataclass(frozen=True)
 class ModelConfig:
-    support: float = 0.005
-    confidence: float = 0.15
+    support: float = 0.002
+    confidence: float = 0.10
     lift: float = 1.0
 
     def __post_init__(self):

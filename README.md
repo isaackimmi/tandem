@@ -61,7 +61,7 @@ API: `GET /api/v1/items`, `POST /api/v1/recommendations`, `GET /health`, and `GE
 
 ## Model and limitations
 
-Each backend instance mines once at startup and reuses its rules. The frozen configuration is support **0.005**, confidence **0.15**, and lift **strictly greater than 1**. The dataset yields 15 rules, including three two-item antecedents. Ranking is confidence, lift, support, then SKU. See the [calibration report](server/MODEL_REPORT.md) for measured coverage, timings, supporting counts, and the 1% support comparison.
+Each backend instance mines once at startup and reuses its rules. The frozen configuration is support **0.002**, confidence **0.10**, and lift **strictly greater than 1**. The dataset yields 2,188 rules for 40 single-item baskets, 624 pairs and 59 triples. Each rule has at least two supporting transactions. Ranking is confidence, lift, support, then SKU. See the [calibration report](server/MODEL_REPORT.md) for measured coverage, timings, supporting counts, and the 1% support comparison.
 
 The CSV contains unordered transactions, not individual purchase histories or quantities. Coverage is sparse; no recommendation is often the correct outcome. There is no popularity fallback, external catalog, database, predictive-accuracy claim, or compatibility inference.
 

@@ -6,24 +6,47 @@ The validated basket-size distribution is 237 two-item, 228 three-item,
 258 four-item, and 277 five-item transactions. No within-basket duplicates were
 removed. Repeated purchases remain separate observations.
 
-## Frozen configuration
+## Approved configuration — October 17, 2026
 
-Minimum support **0.005** (five purchases), minimum confidence **0.15**, and
-lift **strictly greater than 1.0**. The originally proposed 0.01 support floor
-produces 147 frequent itemsets and 12 eligible rules, all with singleton
-antecedents. The approved five-occurrence comparison produces 673 itemsets
-and 15 rules: the same 12 singleton rules plus three pair rules.
+Minimum support **0.002** (two purchases), minimum confidence **0.10**, and
+lift **strictly greater than 1.0**. These are now the application defaults,
+replacing support 0.005 and confidence 0.15. Environment overrides remain
+available; the API startup and direct model use share the same defaults.
 
-We selected the five-observation floor because it supports a small, real example
-of the agreed whole-basket behavior while retaining an explicit minimum evidence
-count. This is a demonstration configuration with sparse evidence, not proof of
-predictive quality. There is no automatic threshold relaxation or fallback.
+The selected configuration produces 1,439 frequent itemsets and 2,188 eligible
+single-consequent rules. Every recommendation requires at least two observations
+of the complete selected basket plus the suggested item. Matching uses the exact
+full basket, without subset fallback or automatic threshold relaxation.
 
 The probe denominator is every distinct, nonempty subset of a recorded basket,
-including complete recorded baskets. At the selected floor, supported probes are:
-12/40 singletons, 3/778 pairs, 0/3333 triples, 0/1628 quadruples, and 0/277 quintuples.
-These are descriptive coverage counts, **not accuracy estimates**. Five-or-more
-selected products cannot have an additional observed product in this source.
+including complete recorded baskets: 40 singletons, 778 pairs, 3,333 triples,
+1,628 quadruples, and 277 quintuples. Any unobserved basket cannot have a supported
+rule. These are descriptive coverage counts, **not accuracy estimates**.
+
+| Support | Confidence | Eligible rules | Singles | Pairs | Triples | Quadruples | Quintuples |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1% | 15% | 12 | 12 | 0 | 0 | 0 | 0 |
+| 0.5% | 15% (previous app) | 15 | 12 | 3 | 0 | 0 | 0 |
+| 0.5% | 10% | 298 | 40 | 3 | 0 | 0 | 0 |
+| 0.2% | 15% | 1,877 | 12 | 624 | 59 | 0 | 0 |
+| **0.2%** | **10% (selected)** | **2,188** | **40** | **624** | **59** | **0** | **0** |
+| 0.1% | 10% | 17,276 | 40 | 777 | 3,172 | 1,373 | 0 |
+
+Lowering confidence alone broadens single-item coverage but does not recover
+triples at the old support floor. Lowering support permits repeated, less common
+combinations; combining the two changes supports a useful one-to-three-item demo.
+We rejected 0.1% support because it admits rules backed by only one transaction:
+15,088 of its 17,276 rules have that weakness. With the UI's top-five limit,
+83.46% of displayed recommendation entries under that setting have one observation.
+Two observations still provide weak evidence; this is a demonstration of Apriori,
+not a claim of predictive quality or product compatibility.
+
+The agreed demo scope is **one to three selected products**, replacing the prior
+five-product walkthrough. This is a presentation decision, not a new basket input
+cap or a change to the API's five-result default. The current model has no
+qualifying four- or five-product antecedents. A fifth selected product also cannot
+have an additional observed product in a dataset whose transactions contain at
+most five products.
 
 ## Reproduce
 
@@ -33,19 +56,29 @@ From the repository root, after installing the locked server dependencies:
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=server server/.venv/bin/python -m data_science.calibrate
 ```
 
-The machine-readable `calibration.json` records package/environment versions,
-actual timings, source hash, counts, chosen configuration, and examples. The
-measurement's warm p95 uses 1,000 in-process lookup calls and excludes HTTP,
-network, imports, and startup. The initial measured mining computation was about
-21 ms for the selected configuration; this is not total process cold-start time.
+The committed `calibration.json` records package/environment versions, measured
+timings, source hash, six reproducible comparisons, chosen configuration, and
+examples. The warm p95 uses 1,000 in-process lookup calls and excludes HTTP,
+network, imports, and startup. Mining duration is not total process cold-start time.
+The previous 90-setting exploratory study remains historical research; this
+focused report reproduces the comparisons that explain the approved decision.
 
-## Genuine browser acceptance example
+## Genuine browser acceptance examples
 
-Select `60-652-95R` (GE Interlogix carbon monoxide detector) and
-`DH-IPC-HDBW4431R-ZS` (Dahua IP camera). The recommendation is
-`DS-2CD2142FWD-I` (Hikvision 4MP IP Camera). Five of the 14 transactions containing
-that pair also contain the suggested camera: support 0.005, confidence 5/14,
-lift approximately 3.536. Adding `0806-001` clears all suggestions. Removing it
-restores the original recommendation.
+Clear the basket before each independent case. Result order follows confidence,
+then lift, then support descending, then SKU ascending. The approved demo path is:
 
-These are co-purchase relationships, not electrical compatibility claims.
+| Selected SKUs | Expected displayed recommendation SKUs, in order |
+| --- | --- |
+| `B5512` | `DS-7608NI-I2/8P`, `60-848-02-95R`, `6160` |
+| `B5512`, `6160` | `DS-2CD2142FWD-I`, `HEN08104`, `QND-6010R`, `DS-7608NI-I2/8P` |
+| `B5512`, `6160`, `DS-2CD2142FWD-I` | `QND-6010R` |
+| `60-652-95R`, `DH-IPC-HDBW4431R-ZS` | `DS-2CD2142FWD-I`, `PG9914`, `5808W3`, `HEN08104`, `VISTA-20P` |
+| `60-652-95R`, `DH-IPC-HDBW4431R-ZS`, `0806-001` | None; removing Axis restores the previous pair results |
+
+The Bosch + Honeywell + Hikvision triple appears in three purchases; two also
+contain `QND-6010R`. Its recommendation has support 2/1,000, confidence 2/3,
+and lift approximately 7.168. The raw transaction counts are independently
+verified by regression tests, including each result's support, confidence, and
+lift. Bosch `B5512` is now a positive example and must no longer be presented as
+an empty-result control.

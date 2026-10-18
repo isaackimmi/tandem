@@ -21,11 +21,11 @@ Tandem discovers products purchased together, then responds to the basket you bu
 <empty-block/>
 <columns>
 	<column>
-		## 0.5%
-		Minimum support<br>At least five transactions
+		## 0.2%
+		Minimum support<br>At least two transactions
 	</column>
 	<column>
-		## 15%
+		## 10%
 		Minimum confidence<br>Among baskets with the antecedent
 	</column>
 	<column>
@@ -58,9 +58,9 @@ Observed co-purchases. Not an accuracy score or a compatibility guarantee. {colo
 ![Mine once. Match every change.](architecture-keynote.png)
 ---
 # The whole basket matters.
-**Choose two products. See a recommendation.**
-Add an unsupported third product. Suggestions disappear.
-Remove it. The original recommendation returns.
+**Start with Bosch. Add Honeywell. Then Hikvision.**
+A supported three-product basket recommends Hanwha.
+Swap Hikvision for Axis: suggestions disappear. Remove Axis to restore the pair.
 <empty-block/>
 **No quantities. No duplicates. No fallback.**
 ---

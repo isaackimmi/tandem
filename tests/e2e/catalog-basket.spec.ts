@@ -98,6 +98,25 @@ test('real CSV full-basket recommendations clear for an unsupported addition and
   await expect(recommendations(page)).toContainText(/add.*(item|product)|start.*basket/i);
 });
 
+test('calibrated real CSV demo recommends for Bosch, a pair and a triple without subset fallback', async ({ page }) => {
+  await page.goto('/recommender');
+  const recs = recommendations(page);
+  const ids = () => recs.getByTestId(/^product-/).evaluateAll(rows => rows.map(row => row.getAttribute('data-testid')));
+  await selectSku(page, 'B5512');
+  await expect.poll(ids).toEqual(['product-DS-7608NI-I2/8P', 'product-60-848-02-95R', 'product-6160']);
+  await recs.getByTestId('product-6160').getByRole('button', { name: /^Add / }).click();
+  await expect.poll(ids).toEqual(['product-DS-2CD2142FWD-I', 'product-HEN08104', 'product-QND-6010R', 'product-DS-7608NI-I2/8P']);
+  await recs.getByTestId('product-DS-2CD2142FWD-I').getByRole('button', { name: /^Add / }).click();
+  await expect.poll(ids).toEqual(['product-QND-6010R']);
+  await expect(basket(page).getByRole('button', { name: /^Remove / })).toHaveCount(3);
+  await basket(page).getByTestId('product-DS-2CD2142FWD-I').getByRole('button', { name: /^Remove / }).click();
+  await selectSku(page, '0806-001');
+  await expect(recs).toContainText(/no (qualifying|recommendations|suggestions|match)|no recommendation/i);
+  await expect.poll(ids).toEqual([]);
+  await basket(page).getByTestId('product-0806-001').getByRole('button', { name: /^Remove / }).click();
+  await expect.poll(ids).toEqual(['product-DS-2CD2142FWD-I', 'product-HEN08104', 'product-QND-6010R', 'product-DS-7608NI-I2/8P']);
+});
+
 test('keyboard selection on a narrow screen is unique, accessible, and resets on refresh', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/recommender');

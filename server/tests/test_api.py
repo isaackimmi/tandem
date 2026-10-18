@@ -213,7 +213,9 @@ def test_real_csv_catalog_and_recommendation_contract():
         result = client.post(
             "/api/v1/recommendations", json={"selectedItemIds": pair}
         ).json()
-        assert [item["id"] for item in result["recommendations"]] == ["DS-2CD2142FWD-I"]
+        assert [item["id"] for item in result["recommendations"]] == [
+            "DS-2CD2142FWD-I", "PG9914", "5808W3", "HEN08104", "VISTA-20P"
+        ]
         assert result["recommendations"][0]["supportingTransactionCount"] == 5
         assert (
             client.post(
@@ -246,3 +248,22 @@ def test_real_csv_catalog_and_recommendation_contract():
             ][0]["id"]
             == pair[1]
         )
+
+
+def test_startup_defaults_match_model_and_environment_overrides(monkeypatch):
+    from data_science.model_types import ModelConfig
+
+    for name in ("MIN_SUPPORT", "MIN_CONFIDENCE", "MIN_LIFT"):
+        monkeypatch.delenv(name, raising=False)
+    app = create_app()
+    with TestClient(app) as client:
+        assert app.state.model.config == ModelConfig(0.002, 0.10, 1)
+        assert client.get("/ready").json()["ruleCount"] == 2188
+        default_version = app.state.model.version
+    for name, value in {"MIN_SUPPORT": ".005", "MIN_CONFIDENCE": ".15", "MIN_LIFT": "1"}.items():
+        monkeypatch.setenv(name, value)
+    app = create_app()
+    with TestClient(app) as client:
+        assert app.state.model.config == ModelConfig(.005, .15, 1)
+        assert client.get("/ready").json()["ruleCount"] == 15
+        assert app.state.model.version != default_version

@@ -25,8 +25,14 @@ def calibration_report(path: Path) -> dict:
         for subset in combinations(sorted(basket), size)
     }
     experiments = []
-    for support in (0.01, 0.005):
-        config = ModelConfig(support, 0.15, 1)
+    for config in (
+        ModelConfig(0.01, 0.15, 1),
+        ModelConfig(0.005, 0.15, 1),
+        ModelConfig(0.005, 0.10, 1),
+        ModelConfig(0.002, 0.15, 1),
+        ModelConfig(0.002, 0.10, 1),
+        ModelConfig(0.001, 0.10, 1),
+    ):
         model = mine_model(data, config)
         coverage = {}
         for size in range(1, 6):
@@ -40,12 +46,20 @@ def calibration_report(path: Path) -> dict:
             for rules in model.rules.values()
             for r in rules
         ]
+        displayed_counts = [
+            r.supporting_transaction_count
+            for basket in model.rules
+            for r in model.recommend(tuple(basket))
+        ]
         experiments.append(
             {
                 "config": asdict(config),
                 "itemsets": model.itemset_count,
                 "rules": model.rule_count,
                 "minimumSupportingCount": min(counts, default=0),
+                "oneTransactionRules": counts.count(1),
+                "displayedRecommendations": len(displayed_counts),
+                "oneTransactionDisplayedRecommendations": displayed_counts.count(1),
                 "coverage": coverage,
                 "miningSeconds": model.mining_seconds,
             }

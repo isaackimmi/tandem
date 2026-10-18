@@ -22,7 +22,7 @@ with patch.object(main, "mine_model", wraps=main.mine_model) as mine:
     with TestClient(app) as client:
         ready = client.get("/ready").json()
         assert ready["productCount"] == 40
-        assert ready["ruleCount"] == 15
+        assert ready["ruleCount"] == 2188
         assert client.get("/api/v1/items").json()["total"] == 40
         body = {"selectedItemIds": ["60-652-95R", "DH-IPC-HDBW4431R-ZS"]}
         first = client.post("/api/v1/recommendations", json=body).json()

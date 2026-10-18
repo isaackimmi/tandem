@@ -21,19 +21,29 @@ and invalid limits return 422 validation details. No cart is persisted.
 
 ```json
 {
-  "selectedItemIds":["60-652-95R","DH-IPC-HDBW4431R-ZS"],
-  "recommendations":[{
-    "id":"DS-2CD2142FWD-I",
-    "name":"Hikvision 4MP IP Camera",
-    "sku":"DS-2CD2142FWD-I",
-    "antecedentIds":["60-652-95R","DH-IPC-HDBW4431R-ZS"],
-    "supportingTransactionCount":5,
-    "support":0.005,
-    "confidence":0.35714285714285715,
-    "lift":3.536067892503536
-  }],
-  "reason":null,
-  "modelVersion":"18b05da9c57356864201bf5efd93f154374831026b32b23620762ca3e963591c"
+  "selectedItemIds": [
+    "6160",
+    "B5512",
+    "DS-2CD2142FWD-I"
+  ],
+  "recommendations": [
+    {
+      "id": "QND-6010R",
+      "name": "Hanwha QND-6010R Network Camera",
+      "sku": "QND-6010R",
+      "antecedentIds": [
+        "6160",
+        "B5512",
+        "DS-2CD2142FWD-I"
+      ],
+      "supportingTransactionCount": 2,
+      "support": 0.002,
+      "confidence": 0.6666666666666666,
+      "lift": 7.168458781362006
+    }
+  ],
+  "reason": null,
+  "modelVersion": "1a3a766f13563e2633985f67bddfe84668e04a9bd85d8a8a7e631859a73d19f1"
 }
 ```
 
@@ -55,7 +65,7 @@ while startup is blocked.
 - `CORS_ORIGINS`: comma-separated explicit frontend origins. Defaults to
   `http://localhost:3000,http://127.0.0.1:3000`; wildcard is rejected.
 - `MIN_SUPPORT`, `MIN_CONFIDENCE`, `MIN_LIFT`: override frozen calibration defaults
-  0.005, 0.15, 1.0. Lift comparison remains strict. Invalid config fails startup.
+  0.002, 0.10, 1.0. Lift comparison remains strict. Invalid config fails startup.
 - One Uvicorn worker is sufficient. Each process initializes its own model once.
   Thread environment limits are set by the repository launcher.
 

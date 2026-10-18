@@ -107,7 +107,7 @@
         <mxCell id="32" value="Validated catalog" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=23;fontColor=#6C6963;fontStyle=0;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1216" y="386" width="226.77999999999997" height="31" />
         </mxCell>
-        <mxCell id="33" value="15 eligible rules" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=23;fontColor=#6C6963;fontStyle=0;spacing=0;" vertex="1" parent="1">
+        <mxCell id="33" value="2,188 eligible rules" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=23;fontColor=#6C6963;fontStyle=0;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1216" y="419" width="226.77999999999997" height="31" />
         </mxCell>
         <mxCell id="34" value="Index keyed by whole basket" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=17;fontColor=#6C6963;fontStyle=0;spacing=0;" vertex="1" parent="1">
@@ -116,7 +116,7 @@
         <mxCell id="35" value="Frozen thresholds" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=19;fontColor=#484540;fontStyle=1;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="80" y="536" width="187.33999999999997" height="27" />
         </mxCell>
-        <mxCell id="36" value="Support ≥ 0.005   ·   Confidence ≥ 0.15   ·   Lift &gt; 1" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=23;fontColor=#6C6963;fontStyle=0;spacing=0;" vertex="1" parent="1">
+        <mxCell id="36" value="Support ≥ 0.002   ·   Confidence ≥ 0.10   ·   Lift &gt; 1" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=23;fontColor=#6C6963;fontStyle=0;spacing=0;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="280" y="532" width="720.3599999999999" height="31" />
         </mxCell>
         <mxCell id="37" value="02   WHEN THE USER INTERACTS" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#78756F;fontStyle=1;spacing=0;" vertex="1" parent="1">

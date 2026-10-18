@@ -30,10 +30,10 @@
 <text x="1216" y="329" font-family="Helvetica Neue,Arial,sans-serif" font-size="15" fill="#89857F" font-weight="600">KEEP READY</text>
 <text x="1216" y="369" font-family="Helvetica Neue,Arial,sans-serif" font-size="28" fill="#242320" font-weight="600">In memory</text>
 <text x="1216" y="409" font-family="Helvetica Neue,Arial,sans-serif" font-size="23" fill="#6C6963" font-weight="400">Validated catalog</text>
-<text x="1216" y="442" font-family="Helvetica Neue,Arial,sans-serif" font-size="23" fill="#6C6963" font-weight="400">15 eligible rules</text>
+<text x="1216" y="442" font-family="Helvetica Neue,Arial,sans-serif" font-size="23" fill="#6C6963" font-weight="400">2,188 eligible rules</text>
 <text x="1216" y="480" font-family="Helvetica Neue,Arial,sans-serif" font-size="17" fill="#6C6963" font-weight="400">Index keyed by whole basket</text>
 <text x="80" y="555" font-family="Helvetica Neue,Arial,sans-serif" font-size="19" fill="#484540" font-weight="600">Frozen thresholds</text>
-<text x="280" y="555" font-family="Helvetica Neue,Arial,sans-serif" font-size="23" fill="#6C6963" font-weight="400">Support ≥ 0.005   ·   Confidence ≥ 0.15   ·   Lift &gt; 1</text>
+<text x="280" y="555" font-family="Helvetica Neue,Arial,sans-serif" font-size="23" fill="#6C6963" font-weight="400">Support ≥ 0.002   ·   Confidence ≥ 0.10   ·   Lift &gt; 1</text>
 <text x="80" y="629" font-family="Helvetica Neue,Arial,sans-serif" font-size="18" fill="#78756F" font-weight="600">02   WHEN THE USER INTERACTS</text>
 <rect x="80" y="659" width="640" height="267" rx="24" fill="#FFFFFF" stroke="#E5E2DC"/>
 <rect x="800" y="659" width="720" height="267" rx="24" fill="#FFFFFF" stroke="#E5E2DC"/>
