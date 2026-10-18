@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   description: "Build a basket and discover patterns in past purchases.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" data-theme="tandem"><body>{children}</body></html>;
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en" data-theme="tandem">
+      <body>{children}</body>
+    </html>
+  );
 }

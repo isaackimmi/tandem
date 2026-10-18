@@ -1,0 +1,11 @@
+.label {
+  animation: label-appear 150ms ease;
+}
+@keyframes label-appear {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

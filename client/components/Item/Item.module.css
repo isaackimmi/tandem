@@ -1,0 +1,14 @@
+/* Enter motion belongs to the item that owns it, not the global stylesheet. */
+.enter {
+  animation: appear 180ms ease;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

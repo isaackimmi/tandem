@@ -1,0 +1,9 @@
+.rows :global(.skeleton) {
+  background: var(--color-base-300);
+  animation: breathe 1.8s ease-in-out infinite;
+}
+@keyframes breathe {
+  50% {
+    opacity: 0.45;
+  }
+}
