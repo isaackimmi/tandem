@@ -16,7 +16,7 @@ The backend function excludes frontend files, documentation, test assets, and lo
 
 ## Project setup after approval
 
-1. Import the existing GitHub repository into Vercel with **Root Directory `.`**, not `client/` or `server/`. Use the checked-in Services configuration. Keep provider build/install overrides unset; each service owns its configuration. Use Node.js 22.x and Python 3.12.
+1. Import the existing GitHub repository into Vercel with **Root Directory `.`**, not `client/` or `server/`. Use the checked-in Services configuration. Keep provider build/install overrides unset; each service owns its configuration. The frontend install command explicitly runs npm 11.6.2 so it matches the lockfile and CI instead of relying on Vercel’s default npm. Use Node.js 22.x and Python 3.12.
 2. Ensure the project can use Services beta. Do not add `experimentalServices` or configure an independent frontend project on top of this file.
 3. Set the environment values below for both Preview and Production. Do not upload local `.env` files or set manually generated preview hostnames.
 4. Create a preview only after Isaac authorizes deployment. Inspect both service build logs and function bundle contents/size, then perform the acceptance checks below before promoting it.
