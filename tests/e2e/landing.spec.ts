@@ -7,5 +7,5 @@ test('landing opens the catalog and preserves the shared navigation', async ({ p
   await expect(page).toHaveURL(/\/recommender$/);
   await expect(page.getByRole('heading', { name: 'Catalog', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: /your basket/i })).toBeVisible();
-  await expect(page.getByRole('textbox', { name: /search products/i })).toBeVisible();
+  await expect(page.getByRole('searchbox', { name: /search products/i })).toBeVisible();
 });
