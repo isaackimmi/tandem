@@ -2,6 +2,8 @@
 
 A market basket recommender built with Next.js, Tailwind CSS, daisyUI, and FastAPI. Browse 40 products from the supplied retail dataset, build a basket, and explore co-purchase suggestions supported by the **entire basket**.
 
+> **Notion access:** Our team used Notion to coordinate work for this hackathon. All related Notion links and pages belong to our private teamspace and are not publicly accessible.
+
 ## Screenshots
 
 **Browse the catalog and build a basket.**
