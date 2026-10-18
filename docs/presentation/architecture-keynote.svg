@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760"><title>Tandem architecture — presentation view</title><desc>Startup validates and encodes the CSV, mines Apriori association rules, and retains catalog and rules in memory. Next.js requests catalog and recommendations from FastAPI, which matches the entire basket against stored rules.</desc><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M1 1 L6 4 L1 7" fill="none" stroke="#8B8882" stroke-width="1.5"/></marker></defs>
+<rect x="0" y="0" width="1600" height="760" rx="0" fill="#F6F5F2" stroke="#F6F5F2"/>
+<text x="70" y="62" font-family="Helvetica Neue,Arial,sans-serif" font-size="22" fill="#78756F" font-weight="600">AT STARTUP</text>
+<text x="1060" y="62" font-family="Helvetica Neue,Arial,sans-serif" font-size="22" fill="#6C6963" font-weight="400">Once per backend instance</text>
+<rect x="70" y="100" width="335" height="185" rx="24" fill="#FFFFFF" stroke="#E5E2DC"/>
+<rect x="445" y="100" width="335" height="185" rx="24" fill="#FFFFFF" stroke="#E5E2DC"/>
+<rect x="820" y="100" width="335" height="185" rx="24" fill="#FFFFFF" stroke="#E5E2DC"/>
+<rect x="1195" y="100" width="335" height="185" rx="24" fill="#FFFFFF" stroke="#E5E2DC"/>
+<path d="M415 193 L435 193" stroke="#8B8882" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M790 193 L810 193" stroke="#8B8882" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<path d="M1165 193 L1185 193" stroke="#8B8882" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<text x="96" y="151" font-family="Helvetica Neue,Arial,sans-serif" font-size="29" fill="#242320" font-weight="600">Purchase history</text>
+<text x="96" y="198" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">1,000 transactions</text>
+<text x="96" y="238" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">40 products · CSV</text>
+<text x="471" y="151" font-family="Helvetica Neue,Arial,sans-serif" font-size="28" fill="#242320" font-weight="600">Validate + encode</text>
+<text x="471" y="198" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">SKU-based baskets</text>
+<text x="471" y="238" font-family="Helvetica Neue,Arial,sans-serif" font-size="23" fill="#6C6963" font-weight="400">Boolean pandas table</text>
+<text x="846" y="151" font-family="Helvetica Neue,Arial,sans-serif" font-size="29" fill="#242320" font-weight="600">Apriori + rules</text>
+<text x="846" y="198" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">Frequent itemsets</text>
+<text x="846" y="238" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">Association rules</text>
+<text x="1221" y="151" font-family="Helvetica Neue,Arial,sans-serif" font-size="29" fill="#242320" font-weight="600">In memory</text>
+<text x="1221" y="198" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">Validated catalog</text>
+<text x="1221" y="238" font-family="Helvetica Neue,Arial,sans-serif" font-size="25" fill="#6C6963" font-weight="400">15 eligible rules</text>
+<text x="70" y="370" font-family="Helvetica Neue,Arial,sans-serif" font-size="22" fill="#78756F" font-weight="600">ON EACH INTERACTION</text>
+<rect x="70" y="410" width="650" height="220" rx="24" fill="#FFFFFF" stroke="#E5E2DC"/>
+<rect x="800" y="410" width="730" height="220" rx="24" fill="#FFFFFF" stroke="#E5E2DC"/>
+<path d="M735 520 L785 520" stroke="#8B8882" stroke-width="2" fill="none" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path d="M1362 298 L1362 397" stroke="#8B8882" stroke-width="2" fill="none" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<text x="1380" y="357" font-family="Helvetica Neue,Arial,sans-serif" font-size="20" fill="#6C6963" font-weight="400">Read</text>
+<text x="96" y="463" font-family="Helvetica Neue,Arial,sans-serif" font-size="32" fill="#242320" font-weight="600">Next.js + React</text>
+<text x="96" y="509" font-family="Helvetica Neue,Arial,sans-serif" font-size="26" fill="#6C6963" font-weight="400">Catalog · basket · suggestions</text>
+<text x="96" y="550" font-family="Helvetica Neue,Arial,sans-serif" font-size="24" fill="#6C6963" font-weight="400">Initial catalog under Suspense</text>
+<text x="96" y="593" font-family="Helvetica Neue,Arial,sans-serif" font-size="21" fill="#6C6963" font-weight="400">Local loading / retry • stale-response protection</text>
+<text x="826" y="463" font-family="Helvetica Neue,Arial,sans-serif" font-size="32" fill="#242320" font-weight="600">FastAPI</text>
+<text x="826" y="509" font-family="Helvetica Neue,Arial,sans-serif" font-size="26" fill="#6C6963" font-weight="400">GET /api/v1/items</text>
+<text x="826" y="550" font-family="Helvetica Neue,Arial,sans-serif" font-size="26" fill="#6C6963" font-weight="400">POST /api/v1/recommendations</text>
+<text x="826" y="593" font-family="Helvetica Neue,Arial,sans-serif" font-size="24" fill="#242320" font-weight="500">Exact full-basket lookup. No fallback.</text>
+<text x="70" y="710" font-family="Helvetica Neue,Arial,sans-serif" font-size="28" fill="#242320" font-weight="600">Patterns are mined at startup. Requests look up the entire basket.</text>
+</svg>
