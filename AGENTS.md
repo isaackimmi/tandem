@@ -10,4 +10,4 @@ Keep PRs logically scoped (aim under 750 non-test lines). Before merging require
 
 Each task's Notion Logs database records meaningful progress, deviations and reasoning, independently resolved questions, verification, and remaining work. Preserve previous logs. Routine implementation decisions are autonomous.
 
-After local acceptance, deliver an executive summary, then prepare the optional two-project Vercel deployment PR. Leave that PR UNMERGED for Isaac's review. Do not deploy or purchase services as part of preparing it.
+After local acceptance, deliver an executive summary, then prepare the optional Vercel deployment PR for Next.js and FastAPI in this monorepo. Validate single-project Vercel Services; separate Vercel projects from the same repo remain a fallback. Leave that PR UNMERGED for Isaac's review. Do not deploy or purchase services as part of preparing it. Finish the requested Notion presentation, timed demo script, and editable architecture diagram with independent agent review.

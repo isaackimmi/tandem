@@ -13,7 +13,7 @@ async function visit(directory) {
       const destination = source.replace(/\.webm$/, '.mp4');
       const conversion = spawnSync(ffmpeg, ['-y', '-i', source, '-c:v', 'libx264', '-threads', '1', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', destination], { encoding: 'utf8' });
       if (conversion.status !== 0) throw new Error(conversion.stderr);
-      const decode = spawnSync(ffmpeg, ['-v', 'error', '-i', destination, '-f', 'null', '-'], { encoding: 'utf8' });
+      const decode = spawnSync(ffmpeg, ['-v', 'error', '-threads', '1', '-i', destination, '-f', 'null', '-'], { encoding: 'utf8' });
       if (decode.status !== 0 || !(await stat(destination)).size) throw new Error(`Invalid MP4: ${destination}`);
       outputs.push(destination);
       await rm(source);

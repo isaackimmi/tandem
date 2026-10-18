@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node scripts/run.mjs",
     "start": "node scripts/run.mjs --production",
-    "build": "npm --prefix client run build",
+    "build": "node scripts/build.mjs",
     "typecheck": "npm --prefix client run typecheck",
     "test:backend": "server/.venv/bin/python -m pytest server/tests -q",
     "test:e2e": "node scripts/e2e.mjs",
