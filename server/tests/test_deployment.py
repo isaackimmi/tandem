@@ -10,7 +10,7 @@ def test_repository_root_bundle_is_self_contained_and_reuses_model(tmp_path):
     root = Path(__file__).resolve().parents[2]
     shutil.copy(root / "vercel_backend.py", tmp_path)
     shutil.copytree(root / "server/app", tmp_path / "server/app")
-    shutil.copytree(root / "server/tandem", tmp_path / "server/tandem")
+    shutil.copytree(root / "server/data_science", tmp_path / "server/data_science")
     shutil.copytree(root / "references", tmp_path / "references")
     result = subprocess.run(
         [sys.executable, "-c", '''

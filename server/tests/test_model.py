@@ -1,7 +1,8 @@
 import pytest
 
-from tandem.data import load_data
-from tandem.model import ModelConfig, mine_model
+from data_science.data import load_data
+from data_science.model import mine_model
+from data_science.model_types import ModelConfig
 from test_data import write_csv
 
 

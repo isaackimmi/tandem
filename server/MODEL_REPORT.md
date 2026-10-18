@@ -30,7 +30,7 @@ selected products cannot have an additional observed product in this source.
 From the repository root, after installing the locked server dependencies:
 
 ```sh
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=server server/.venv/bin/python -m tandem.calibrate
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=server server/.venv/bin/python -m data_science.calibrate
 ```
 
 The machine-readable `calibration.json` records package/environment versions,

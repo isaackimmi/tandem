@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-from tandem.data import DataError
+from data_science.data_types import DataError
 
 from app.main import create_app
 from test_model import fixture_data

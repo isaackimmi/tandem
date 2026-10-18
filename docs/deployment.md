@@ -12,7 +12,7 @@ Browser requests use relative `/api/v1/...` URLs. The frontend service build exp
 
 The frontend service root is `client/`. The backend root is the **repository root**, so `references/CMPE256_Hackathon_market_basket_analysis_Release.csv` remains inside its build boundary. `vercel_backend.py` exposes the existing application with the same import path as the local runner; it does not copy the CSV or mine rules itself. Python 3.12 and pinned runtime dependencies are declared at the root. Development-only pytest/httpx dependencies remain in `server/requirements.txt`; runtime pins have one source in the root `requirements.txt`; the local runtime manifest includes it. The hosted builder failed to resolve an included nested requirements file, so its root manifest is deliberately self-contained.
 
-The backend function excludes frontend files, documentation, test assets, and local environments. Do not exclude `references/`, `server/app/`, or `server/tandem/`. No database, upload bucket, writeable persistent filesystem, or external model is required.
+The backend function excludes frontend files, documentation, test assets, and local environments. Do not exclude `references/`, `server/app/`, or `server/data_science/`. No database, upload bucket, writeable persistent filesystem, or external model is required.
 
 ## Project setup after approval
 
