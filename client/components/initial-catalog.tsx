@@ -3,9 +3,11 @@ import { getCatalog } from "@/lib/api";
 import { AvailableItems } from "./available-items";
 import { RowsSkeleton } from "./feedback";
 
-export async function InitialCatalog() {
+export async function InitialCatalog({ scenario }: { scenario?: "hold" | "fail" }) {
   await connection();
-  const initialData = await getCatalog({ origin: process.env.API_ORIGIN ?? "http://127.0.0.1:8000" }).catch(() => null);
+  const origin = process.env.API_ORIGIN ?? "http://127.0.0.1:8000";
+  const fixtureOrigin = scenario ? `${origin.replace(/\/$/, "")}/api/manual/${scenario}` : origin;
+  const initialData = await getCatalog({ origin: fixtureOrigin }).catch(() => null);
   return <AvailableItems initialData={initialData} />;
 }
 export function CatalogFallback() {
