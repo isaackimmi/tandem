@@ -22,6 +22,10 @@ Catalog search/pagination stays independent of basket and recommendations. One s
 
 Stable shell and basket provider outside initial catalog Suspense. Runtime Server Component fetch under local boundary, finite timeout, no backend dependency during build, no duplicate hydration fetch. Route loading/error plus local request errors and regional render boundaries. Keep unrelated controls usable during loading/errors; retry preserves basket. Smooth small CSS press/fade feedback, disabled decorative motion under prefers-reduced-motion, persistent keyboard focus, polite status, accessible product-specific control names.
 
+## Code organization
+
+Use one React component per file with related components grouped in directories. Prefer daisyUI components and Tailwind utility classes. Keep required custom CSS in colocated CSS Modules; globals.css is for shared theme, framework and base/accessibility setup. Backend app/main.py composes startup, middleware and routers; endpoint families and shared schemas have dedicated modules. Dataset and Apriori code live in server/data_science. These structural changes preserve behavior and the current thresholds.
+
 ## Verification and delivery
 
 Test-first seams: CSV/catalog public functions, rule policy, FastAPI endpoints/lifespan, browser user interactions. Fixtures independently specify edge cases; actual CSV/backend browser journey proves integration. Cover all40 products, search/SKU, pagination, unique add/remove/clear, full-basket unsupported state/restoration, malformed requests, deterministic ties, stale search/recommendation races, failures/retry, boundary isolation with server-side delay fixture, keyboard/mobile/reducedmotion, production build without backend and production startup.

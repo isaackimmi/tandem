@@ -1,0 +1,7 @@
+/* The decorative graph-paper illustration is specific to the landing page. */
+.illustrationGrid {
+  background-image:
+    linear-gradient(#dededb60 1px, transparent 1px),
+    linear-gradient(90deg, #dededb60 1px, transparent 1px);
+  background-size: 56px 56px;
+}
