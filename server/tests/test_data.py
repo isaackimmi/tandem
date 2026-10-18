@@ -3,7 +3,8 @@ from pathlib import Path
 
 import pytest
 
-from tandem.data import DataError, load_data
+from data_science.data import load_data
+from data_science.data_types import DataError
 
 
 def write_csv(tmp_path, rows, header=None):

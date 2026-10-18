@@ -5,8 +5,9 @@ import hashlib
 import io
 import re
 from collections import Counter
-from dataclasses import dataclass
 from pathlib import Path
+
+from data_science.data_types import DataError, Dataset, Product
 
 DEFAULT_CSV = (
     Path(__file__).resolve().parents[2]
@@ -15,26 +16,6 @@ DEFAULT_CSV = (
 )
 COLUMNS = ("transaction_id", "item_1", "item_2", "item_3", "item_4", "item_5")
 LABEL = re.compile(r"(.+?)\s+\(SKU:\s*([^()\s]+)\)")
-
-
-class DataError(ValueError):
-    """The source cannot supply an unambiguous catalog and transaction set."""
-
-
-@dataclass(frozen=True)
-class Product:
-    id: str
-    name: str
-    sku: str
-
-
-@dataclass(frozen=True)
-class Dataset:
-    products: tuple[Product, ...]
-    transactions: tuple[frozenset[str], ...]
-    fingerprint: str
-    duplicate_items: int
-    basket_sizes: tuple[tuple[int, int], ...]
 
 
 def load_data(path: Path = DEFAULT_CSV) -> Dataset:

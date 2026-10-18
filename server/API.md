@@ -65,3 +65,12 @@ From repository root: `server/.venv/bin/python -m pytest -q server/tests`.
 The tests use independent tiny fixtures and the actual committed CSV. Backend
 TestClient checks do not replace the coordinator's real browser Playwright and
 manual MP4 acceptance gates.
+
+## Source organization
+
+`app/main.py` composes startup, middleware, and routers. Each API resource has
+its own module in `app/endpoints/`; HTTP request/response schemas live in
+`app/schemas/`. The `data_science/` package owns CSV validation, Apriori mining,
+and calibration. Its shared immutable domain classes live in `data_types.py`
+and `model_types.py`, separate from parsing and mining. Run calibration with
+`PYTHONPATH=server server/.venv/bin/python -m data_science.calibrate`.

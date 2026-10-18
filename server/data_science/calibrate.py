@@ -10,8 +10,9 @@ from pathlib import Path
 from statistics import quantiles
 from time import perf_counter
 
-from tandem.data import DEFAULT_CSV, load_data
-from tandem.model import ModelConfig, mine_model
+from data_science.data import DEFAULT_CSV, load_data
+from data_science.model import mine_model
+from data_science.model_types import ModelConfig
 
 
 def calibration_report(path: Path) -> dict:
