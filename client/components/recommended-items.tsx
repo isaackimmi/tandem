@@ -9,11 +9,11 @@ import { EmptyState, PanelError, RowsSkeleton } from "./feedback";
 type Result = { key: string; data: RecommendationResponse | null; error: boolean };
 
 export function RecommendedItems() {
-  const { items, add } = useBasket();
+  const { items, add, revision } = useBasket();
   const ids = useMemo(() => items.map(item => item.id).sort(), [items]);
   const [retry, setRetry] = useState(0);
   const [result, setResult] = useState<Result | null>(null);
-  const key = JSON.stringify([ids, retry]);
+  const key = JSON.stringify([ids, retry, revision]);
   const empty = ids.length === 0;
   const pending = !empty && result?.key !== key;
   const data = result?.key === key ? result.data : null;
