@@ -187,6 +187,8 @@ button, .btn { touch-action: manipulation; }
 .product-action > .btn { width: 100%; }
 .action-label { display: inline-flex; gap: 8px; align-items: center; justify-content: center; animation: label-appear 150ms ease; }
 .btn.added-action:disabled { background: transparent; border-color: transparent; color: #494945; opacity: 1; box-shadow: none; }
+.catalog-options { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin: 16px 0 4px; font-size: 12px; color: var(--muted); }
+.catalog-options .select { width: 76px; min-height: 40px; border: 1px solid var(--line); border-radius: 8px; background-color: #fff; color: var(--color-base-content); }
 .pagination { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-top: 18px; font-size: 12px; }
 .result-count { color: var(--muted); }
 .pagination-buttons { display: flex; gap: 8px; }

@@ -132,7 +132,7 @@ test('catalog failures retry the current search without losing selected items', 
     expect(new URL(route.request().url()).searchParams.get('q')).toBe('controlled-query');
     calls += 1;
     await reply(route, calls === 1 ? { detail: 'Catalog unavailable' } :
-      { items: [items[0]], page: 1, pageSize: 20, total: 1, totalPages: 1 }, calls === 1 ? 503 : 200);
+      { items: [items[0]], page: 1, pageSize: 10, total: 1, totalPages: 1 }, calls === 1 ? 503 : 200);
   });
   await page.goto('/recommender');
   await catalog(page).getByRole('button', { name: `Add ${items[0].name}`, exact: true }).click();
@@ -179,7 +179,7 @@ test('late search results cannot replace the current query', async ({ page, requ
   await page.route('**/api/v1/items?*', async route => {
     const old = new URL(route.request().url()).searchParams.get('q') === 'earlier';
     if (old) { earlierStarted = true; await pending.promise; }
-    await reply(route, { items: [items[old ? 0 : 1]], page: 1, pageSize: 20, total: 1, totalPages: 1 });
+    await reply(route, { items: [items[old ? 0 : 1]], page: 1, pageSize: 10, total: 1, totalPages: 1 });
     if (old) earlierFinished = true;
   });
   try {
