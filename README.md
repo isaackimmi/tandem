@@ -2,6 +2,28 @@
 
 A market basket recommender built with Next.js, Tailwind CSS, daisyUI, and FastAPI. Browse 40 products from the supplied retail dataset, build a basket, and explore co-purchase suggestions supported by the **entire basket**.
 
+## Screenshots
+
+**Browse the catalog and build a basket.**
+
+![Tandem workspace with the product catalog and an empty basket](docs/screenshots/empty-basket.png)
+
+**See recommendations for the complete selection.**
+
+![Two selected Axis cameras with qualifying product recommendations](docs/screenshots/basket-recommendations.png)
+
+**An unsupported combination shows no recommendations.**
+
+![Three selected products with the no-recommendations state](docs/screenshots/no-recommendations.png)
+
+## Architecture
+
+The backend prepares the catalog and association rules once per instance. The frontend requests catalog pages and recommendations through FastAPI, which matches the complete basket against the in-memory rules.
+
+![Tandem architecture showing data preparation, Apriori, in-memory rules, Next.js, and FastAPI endpoints](docs/presentation/architecture-endpoints.png)
+
+[Editable draw.io diagram](docs/presentation/architecture-endpoints.drawio)
+
 ## Setup
 
 Prerequisites: Node.js 22.9 or newer, Python 3.12, and npm 11.6.2 (the lockfile/CI version). From the repository root:

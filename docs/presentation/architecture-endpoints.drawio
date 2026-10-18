@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Tandem architecture" id="tandem">
+    <mxGraphModel page="1" pageWidth="1600" pageHeight="900" background="#FAFAF9" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="TANDEM" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=17;fontColor=#777772;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="35" width="700" height="25" />
+        </mxCell>
+        <mxCell id="3" value="A clear path from purchase to suggestion." style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=40;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="71" width="700" height="48" />
+        </mxCell>
+        <mxCell id="4" value="Next.js + FastAPI  /  One repository  /  Vercel" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=20;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="130" width="700" height="28" />
+        </mxCell>
+        <mxCell id="5" value="01   LEARN ONCE" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#777772;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="193" width="700" height="24" />
+        </mxCell>
+        <mxCell id="6" value="ON BACKEND STARTUP" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#777772;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="193" width="700" height="24" />
+        </mxCell>
+        <mxCell id="7" value="" style="rounded=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#E4E4E0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="230" width="960" height="265" />
+        </mxCell>
+        <mxCell id="8" value="Data science" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=29;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="110" y="246" width="700" height="37" />
+        </mxCell>
+        <mxCell id="9" value="1,000 transactions · 40 products" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="695" y="255" width="320" height="26" />
+        </mxCell>
+        <mxCell id="10" value="01" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#A2A29D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="110" y="307" width="40" height="24" />
+        </mxCell>
+        <mxCell id="11" value="Prepare" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=25;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="110" y="331" width="210" height="33" />
+        </mxCell>
+        <mxCell id="12" value="csv.DictReader + re" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="110" y="371" width="215" height="26" />
+        </mxCell>
+        <mxCell id="13" value="Validate · unique SKUs" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="110" y="399" width="215" height="26" />
+        </mxCell>
+        <mxCell id="14" value="02" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#A2A29D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="340" y="307" width="40" height="24" />
+        </mxCell>
+        <mxCell id="15" value="Encode" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=25;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="340" y="331" width="210" height="33" />
+        </mxCell>
+        <mxCell id="16" value="TransactionEncoder" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="340" y="371" width="215" height="26" />
+        </mxCell>
+        <mxCell id="17" value="→ pandas DataFrame" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="340" y="399" width="215" height="26" />
+        </mxCell>
+        <mxCell id="18" value="03" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#A2A29D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="570" y="307" width="40" height="24" />
+        </mxCell>
+        <mxCell id="19" value="Mine" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=25;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="570" y="331" width="210" height="33" />
+        </mxCell>
+        <mxCell id="20" value="mlxtend · apriori()" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="570" y="371" width="215" height="26" />
+        </mxCell>
+        <mxCell id="21" value="Frequent itemsets" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="570" y="399" width="215" height="26" />
+        </mxCell>
+        <mxCell id="22" value="04" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#A2A29D;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="800" y="307" width="40" height="24" />
+        </mxCell>
+        <mxCell id="23" value="Build rules" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=25;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="800" y="331" width="210" height="33" />
+        </mxCell>
+        <mxCell id="24" value="association_rules()" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="800" y="371" width="215" height="26" />
+        </mxCell>
+        <mxCell id="25" value="One product per rule" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="800" y="399" width="215" height="26" />
+        </mxCell>
+        <mxCell id="26" value="SUPPORT ≥ 0.2%     /     CONFIDENCE ≥ 10%     /     LIFT &gt; 1" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#555650;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="110" y="450" width="700" height="26" />
+        </mxCell>
+        <mxCell id="27" value="" style="rounded=1;arcSize=12;fillColor=#252724;strokeColor=#252724;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="230" width="400" height="265" />
+        </mxCell>
+        <mxCell id="28" value="Ready in memory" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=28;fontColor=#FFFFFF;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="247" width="350" height="36" />
+        </mxCell>
+        <mxCell id="29" value="2,188" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=64;fontColor=#FFFFFF;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="287" width="350" height="72" />
+        </mxCell>
+        <mxCell id="30" value="qualifying rules" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=23;fontColor=#D2D4CE;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="367" width="350" height="31" />
+        </mxCell>
+        <mxCell id="31" value="Catalog + full-basket index" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=20;fontColor=#D2D4CE;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="416" width="350" height="28" />
+        </mxCell>
+        <mxCell id="32" value="Reusable across requests" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#B0B4AB;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="449" width="350" height="26" />
+        </mxCell>
+        <mxCell id="33" style="endArrow=open;endFill=0;strokeColor=#92928D;strokeWidth=2;dashed=0;" edge="1" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1053" y="361" />
+            <mxPoint as="targetPoint" x="1107" y="361" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="34" value="02   RESPOND IN THE MOMENT" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#777772;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="533" width="700" height="24" />
+        </mxCell>
+        <mxCell id="35" value="" style="rounded=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#E4E4E0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="580" width="340" height="225" />
+        </mxCell>
+        <mxCell id="36" value="Next.js + React" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=28;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="110" y="600" width="300" height="36" />
+        </mxCell>
+        <mxCell id="37" value="Browse products" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=21;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="110" y="648" width="300" height="29" />
+        </mxCell>
+        <mxCell id="38" value="Build a unique-item basket" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=21;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="110" y="685" width="300" height="29" />
+        </mxCell>
+        <mxCell id="39" value="Display suggestions" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=21;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="110" y="742" width="300" height="29" />
+        </mxCell>
+        <mxCell id="40" value="" style="rounded=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#E4E4E0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="580" width="400" height="225" />
+        </mxCell>
+        <mxCell id="41" value="FastAPI" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=28;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="600" width="350" height="36" />
+        </mxCell>
+        <mxCell id="42" value="Search &amp; paginate the catalog" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=20;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="649" width="350" height="28" />
+        </mxCell>
+        <mxCell id="43" value="Match the entire basket" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=21;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="685" width="350" height="29" />
+        </mxCell>
+        <mxCell id="44" value="Rank + return suggestions" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=20;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="723" width="350" height="28" />
+        </mxCell>
+        <mxCell id="45" value="No subset fallback" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=18;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1150" y="760" width="350" height="26" />
+        </mxCell>
+        <mxCell id="46" value="GET /api/v1/items" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=23;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="480" y="599" width="600" height="31" />
+        </mxCell>
+        <mxCell id="47" value="Search · page · page size" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=17;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="480" y="636" width="600" height="25" />
+        </mxCell>
+        <mxCell id="48" style="endArrow=open;endFill=0;strokeColor=#92928D;strokeWidth=2;dashed=0;" edge="1" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="440" y="671" />
+            <mxPoint as="targetPoint" x="1100" y="671" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="49" value="POST /api/v1/recommendations" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=23;fontColor=#252525;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="480" y="692" width="600" height="31" />
+        </mxCell>
+        <mxCell id="50" value="Selected product IDs · result limit" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=17;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="480" y="729" width="600" height="25" />
+        </mxCell>
+        <mxCell id="51" style="endArrow=open;endFill=0;strokeColor=#92928D;strokeWidth=2;dashed=0;" edge="1" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="440" y="764" />
+            <mxPoint as="targetPoint" x="1100" y="764" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="52" style="endArrow=open;endFill=0;strokeColor=#92928D;strokeWidth=2;dashed=0;" edge="1" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1100" y="799" />
+            <mxPoint as="targetPoint" x="440" y="799" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="53" value="JSON response" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=17;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="710" y="808" width="220" height="25" />
+        </mxCell>
+        <mxCell id="54" style="endArrow=open;endFill=0;strokeColor=#92928D;strokeWidth=2;dashed=1;" edge="1" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1320" y="507" />
+            <mxPoint as="targetPoint" x="1320" y="568" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="55" value="Lookup" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=17;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1340" y="531" width="150" height="25" />
+        </mxCell>
+        <mxCell id="56" value="Browser /api/* → FastAPI · Initial server catalog → service binding" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="851" width="700" height="24" />
+        </mxCell>
+        <mxCell id="57" value="Operations: GET /health · GET /ready" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=nowrap;overflow=visible;fillColor=none;strokeColor=none;fontFamily=Helvetica;fontSize=16;fontColor=#777772;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1120" y="851" width="420" height="24" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
