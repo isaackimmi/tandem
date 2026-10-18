@@ -38,6 +38,8 @@ jobs:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: server/requirements.txt
+      - name: Use the lockfile npm version
+        run: npm install --global npm@11.6.2
       - name: Install locked dependencies
         run: |
           npm ci

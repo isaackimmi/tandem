@@ -30,3 +30,7 @@ Follow the root README for separate dependency setup, `npm run dev`, and checks.
 After the required stack is merged, create the source ZIP from tracked files with `git archive --format=zip --prefix=tandem/ HEAD`. It includes source, authoritative CSV, dependency locks, tests, and documentation; ignored environments, build output, local secrets, and temporary captures are excluded. The final handoff records the archive's exact commit and checksum.
 
 Deployment is a separate unmerged PR. A locally passing app is not evidence of a successful hosted deployment.
+
+## Clean-install repair
+
+Remote CI exposed an npm10/npm11 lockfile interpretation mismatch in optional native/WASM dependencies. The repository now declares npm11.6.2 and CI installs that exact version before npm ci. A clean client npm ci succeeds locally. ESLint9.39.5 matches the declared peer ranges of Next's React/import plugins; it emits an upstream support-lifecycle notice and remains a development-only tool. The production application dependency versions are unchanged. The existing dev-only glob/braces audit advisory has no compatible upstream remediation in this Next configuration; lint inputs are repository files, not app requests. No forced framework downgrade was applied.

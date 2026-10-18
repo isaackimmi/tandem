@@ -4,7 +4,7 @@ A market basket recommender built with Next.js, Tailwind CSS, daisyUI, and FastA
 
 ## Setup
 
-Prerequisites: Node.js 22 or newer, Python 3.12, and npm. From the repository root:
+Prerequisites: Node.js 22.9 or newer, Python 3.12, and npm 11.6.2 (the lockfile/CI version). From the repository root:
 
 ```sh
 npm ci
