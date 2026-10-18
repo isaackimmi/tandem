@@ -18,7 +18,6 @@
     "backend": {
       "root": ".",
       "framework": "fastapi",
-      "runtime": "python3.12",
       "entrypoint": "vercel_backend:app",
       "functions": {
         "vercel_backend.py": {
