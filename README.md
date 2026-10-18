@@ -64,11 +64,3 @@ API: `GET /api/v1/items`, `POST /api/v1/recommendations`, `GET /health`, and `GE
 Each backend instance mines once at startup and reuses its rules. The frozen configuration is support **0.002**, confidence **0.10**, and lift **strictly greater than 1**. The dataset yields 2,188 rules for 40 single-item baskets, 624 pairs and 59 triples. Each rule has at least two supporting transactions. Ranking is confidence, lift, support, then SKU. See the [calibration report](server/MODEL_REPORT.md) for measured coverage, timings, supporting counts, and the 1% support comparison.
 
 The CSV contains unordered transactions, not individual purchase histories or quantities. Coverage is sparse; no recommendation is often the correct outcome. There is no popularity fallback, external catalog, database, predictive-accuracy claim, or compatibility inference.
-
-## Delivery
-
-The local app is the required milestone. Deployment is a separate optional PR targeting **Vercel from this monorepo**, retaining Next.js and FastAPI/Python. The prepared configuration uses single-project Vercel Services, with two projects from the same repository as a fallback. See [deployment setup, validation limits, and rollback](docs/deployment.md). That PR is reserved for Isaac's review and will not be merged automatically.
-
-See the [acceptance evidence](docs/acceptance.md), [executive summary](https://app.notion.com/p/3fde7d562b8181c4b7d2cc90094096a3), [Notion presentation](https://app.notion.com/p/3fde7d562b8181fa9a30e1a95cc96090), and [read-aloud script](https://app.notion.com/p/3fde7d562b81815ea5e0c15dad02c293). The presentation works in native Notion Presentation Mode (Command–Option–P). Editable architecture diagrams and a verified MP4 navigation rehearsal are in [docs/presentation](docs/presentation).
-
-UI icons use the Lucide family through `react-icons/lu` (ISC license); see installed dependency license notices. Dependency lockfiles preserve the selected versions.
